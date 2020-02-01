@@ -42,13 +42,13 @@ public class DigController : MonoBehaviour
         overlappingGrave = Option<Grave>.None;
     }
 
-    public void IncreaseDigSpeed(float modifier)
+    public void IncreaseDigDamage(float modifier)
     {
-      digSpeed += modifier;
+      digDamagePerPress += modifier;
     }
 
-    public void DecreaseDigSpeed(float modifier)
+    public void DecreaseDigDamage(float modifier)
     {
-      digSpeed -= modifier;
+      digDamagePerPress -= modifier;
     }
 }
