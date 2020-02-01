@@ -58,5 +58,6 @@ public class BodyPartController : MonoBehaviour
 
     Destroy(bodyPart.GetComponent<InteractableLimbController>());
     Destroy(bodyPart.GetComponent<CircleCollider2D>());
+    Destroy(bodyPart.GetComponentInChildren<InteractButtonController>().gameObject);
   }
 }
