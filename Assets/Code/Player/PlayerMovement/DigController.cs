@@ -39,4 +39,14 @@ public class DigController : MonoBehaviour
     {
         overlappingGrave = Option<Grave>.None;
     }
+
+    public void IncreaseDigSpeed(float modifier)
+    {
+      digSpeed += modifier;
+    }
+
+    public void DecreaseDigSpeed(float modifier)
+    {
+      digSpeed -= modifier;
+    }
 }
