@@ -11,7 +11,7 @@ public class DigController : MonoBehaviour
     [SerializeField]
     private PlayerMeta playerMeta;
 
-    private Option<Grave> overlappingGrave;
+    private Option<Grave> overlappingGrave = Option<Grave>.None;
 
     void Update()
     {
