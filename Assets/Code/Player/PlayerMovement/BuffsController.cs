@@ -16,12 +16,12 @@ public class BuffsController : MonoBehaviour
   public void AddBuffs(float speedBuff, float digBuff)
   {
     movementController.IncreaseSpeed(speedBuff);
-    digController.IncreaseDigSpeed(digBuff);
+    digController.IncreaseDigDamage(digBuff);
   }
 
   public void RemoveBuffs(float speedBuff, float digBuff)
   {
     movementController.DecreaseSpeed(speedBuff);
-    digController.DecreaseDigSpeed(digBuff);
+    digController.DecreaseDigDamage(digBuff);
   }
 }
