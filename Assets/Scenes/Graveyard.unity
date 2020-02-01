@@ -295,7 +295,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hand
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4339305129766781454, guid: d64ee749f01164e11998b97b9e061168, type: 3}
+    - {fileID: 4449781964238138227, guid: d64ee749f01164e11998b97b9e061168, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d64ee749f01164e11998b97b9e061168, type: 3}
 --- !u!1001 &1101075603
 PrefabInstance:
@@ -371,6 +373,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1528ca75d224696a9c6db1c18e6a42, type: 3}
+--- !u!1 &1101075604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1252806114058209256, guid: 4c1528ca75d224696a9c6db1c18e6a42,
+    type: 3}
+  m_PrefabInstance: {fileID: 1101075603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1101075605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101075604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16262b4cc30447f68cb363f24119811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementController: {fileID: 0}
+  digController: {fileID: 0}
 --- !u!1001 &2415230971488920309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -519,7 +541,7 @@ PrefabInstance:
     - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.44
       objectReference: {fileID: 0}
     - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
         type: 3}

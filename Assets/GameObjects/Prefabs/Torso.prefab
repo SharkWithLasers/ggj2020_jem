@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3204804401346511131}
   - component: {fileID: 3204804401346511134}
   - component: {fileID: 3204804401346511135}
+  - component: {fileID: 3204804401542135394}
   m_Layer: 0
   m_Name: Torso
   m_TagString: Untagged
@@ -128,12 +129,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ffcd8188fc04f9db33d326493d6dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyPartType: 2
+  limbType: 0
   nodes:
   - {fileID: 5769799004423195905}
   - {fileID: 5769799004332734233}
   - {fileID: 5769799002930788229}
   - {fileID: 5769799003453840880}
+--- !u!114 &3204804401542135394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204804401346511130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626bc978185cb4f0a9502efb89bbc39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeedBuff: 0.5
+  maxSpeedBuff: 2
+  minDigBuff: 1.5
+  maxDigBuff: 2.5
+  speedBuff: 0
+  digBuff: 0
 --- !u!1001 &3204804401263321593
 PrefabInstance:
   m_ObjectHideFlags: 0
