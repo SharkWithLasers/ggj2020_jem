@@ -10,21 +10,20 @@ public class Grave : MonoBehaviour
     private GraveHealthStatus healthStatus;
     private GraveInteractionStatus interactionStatus;
 
-    private GameObject[] currentOverlappingPlayers;
+    private float graveMaxHealth = 100f;
+    private float curGraveHealth;
 
-    /*
-    [SerializeField]
-    private */
-    //private 
+    //private GameObject[] currentOverlappingPlayers;
+    private int numOverlappingPlayers = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        //graveGUID = new GUID();
-
         loot = LimbNodeType.LIMB;
 
         healthStatus = GraveHealthStatus.Untouched;
+
+        curGraveHealth = graveMaxHealth;
     }
 
     // Update is called once per frame
@@ -39,6 +38,7 @@ public class Grave : MonoBehaviour
         if (digComponent != null)
         {
             digComponent.SetOverlappinGrave(this);
+            numOverlappingPlayers++;
         }
     }
 
@@ -48,6 +48,7 @@ public class Grave : MonoBehaviour
         if (digComponent != null)
         {
             digComponent.RemoveOverlappingGrave();
+            numOverlappingPlayers--;
         }
     }
 

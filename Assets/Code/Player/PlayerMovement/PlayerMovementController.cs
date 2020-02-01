@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField]
     private float speed = 1f;
@@ -10,7 +10,6 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     private PlayerMeta playerMeta;
 
-    //[SerializeField]
     private void Start()
     {
     }

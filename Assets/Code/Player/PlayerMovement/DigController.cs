@@ -18,15 +18,16 @@ public class DigController : MonoBehaviour
         // TODO: Add controller support
         if (Input.GetButtonDown($"{playerMeta.InputPrefix}AButton"))
         {
-            Dig();
+            TryDig();
         }
     }
 
-    public void Dig()
+    public void TryDig()
     {
-        Debug.Log("we diggin tho");
-        // How does digging work? Perhaps a grave has a trigger, and a player inside that trigger
-        // holding the interact button 'digs'
+        if (overlappingGrave.HasValue)
+        {
+            Debug.Log("we diggin tho");
+        }
     }
 
     public void SetOverlappinGrave(Grave grave)
