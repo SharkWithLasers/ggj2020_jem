@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4119502597207577801}
   - component: {fileID: 4339305129766781454}
   - component: {fileID: 4449781964238138227}
+  - component: {fileID: 7712620025654072068}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7829536724701387160}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3377b2bc99b5643e388985ab3e685c22, type: 3}
-  m_Color: {r: 0, g: 0.98967814, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3722396, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ffcd8188fc04f9db33d326493d6dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyPartType: 0
+  limbType: 0
   nodes:
   - {fileID: 1794868222486613842}
 --- !u!58 &4339305129766781454
@@ -128,6 +129,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ac75d8deea849eda8e7bfde08fd0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7712620025654072068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829536724701387160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626bc978185cb4f0a9502efb89bbc39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeedBuff: 1
+  maxSpeedBuff: 1.5
+  minDigBuff: 1.5
+  maxDigBuff: 3
+  speedBuff: 0
+  digBuff: 0
 --- !u!1001 &7242656967989958958
 PrefabInstance:
   m_ObjectHideFlags: 0

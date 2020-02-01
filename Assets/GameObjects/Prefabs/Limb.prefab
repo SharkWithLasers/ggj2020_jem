@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2415230972324703670}
   - component: {fileID: 2415230972324703667}
   - component: {fileID: 2415230972324703666}
+  - component: {fileID: 2415230971488920311}
   m_Layer: 0
   m_Name: Limb
   m_TagString: Untagged
@@ -126,10 +127,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ffcd8188fc04f9db33d326493d6dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyPartType: 1
+  limbType: 0
   nodes:
   - {fileID: 6768680191464531364}
   - {fileID: 6768680191811672126}
+--- !u!114 &2415230971488920311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415230972324703671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626bc978185cb4f0a9502efb89bbc39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeedBuff: 0.25
+  maxSpeedBuff: 1.5
+  minDigBuff: 1
+  maxDigBuff: 2
+  speedBuff: 0
+  digBuff: 0
 --- !u!1001 &2415230971383598658
 PrefabInstance:
   m_ObjectHideFlags: 0

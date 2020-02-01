@@ -10,10 +10,13 @@ public class BodyPartController : MonoBehaviour
     public LimbNodeType limbNodeType;
   }
 
+  private BuffsController buffsController;
   private List<Entry> bodyParts = new List<Entry>();
 
   // Initialize the first node we can use to connect
   private void Start() {
+    buffsController = gameObject.GetComponentInParent<BuffsController>();
+
     Entry entry = new Entry();
     entry.limbNodeController = gameObject.GetComponentInChildren<LimbNodeController>();
     entry.limbNodeType = entry.limbNodeController.limbType;
@@ -48,6 +51,10 @@ public class BodyPartController : MonoBehaviour
     currentBodyPartEntry.limbNodeController.AttachNode(
       currentBodyPartEntry.limbNodeController.ResolveNode().nodeType
     );
+
+    Buffs buffs = bodyPart.GetComponent<Buffs>();
+
+    buffsController.AddBuffs(buffs.speedBuff, buffs.digBuff);
 
     Destroy(bodyPart.GetComponent<InteractableLimbController>());
     Destroy(bodyPart.GetComponent<CircleCollider2D>());
