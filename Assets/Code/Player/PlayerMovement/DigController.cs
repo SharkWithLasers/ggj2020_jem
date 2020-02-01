@@ -26,9 +26,7 @@ public class DigController : MonoBehaviour
     {
         if (overlappingGrave.HasValue)
         {
-            //overlappingGrave.Value.
-            //Debug.Log("we diggin tho");
-            overlappingGrave.Value.Damage(2);
+            overlappingGrave.Value.Damage(digDamagePerPress);
         }
     }
 

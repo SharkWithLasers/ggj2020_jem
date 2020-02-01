@@ -10,10 +10,6 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField]
     private PlayerMeta playerMeta;
 
-    private void Start()
-    {
-    }
-
     private void Update()
     {
         float x = Input.GetAxis($"{playerMeta.InputPrefix}Horizontal") * speed;

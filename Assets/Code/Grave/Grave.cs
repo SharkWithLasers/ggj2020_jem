@@ -1,7 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 
+
+public class GraveAndLoot
+{
+    public LimbNodeType loot;
+    public Grave grave;
+}
 
 public class Grave : MonoBehaviour
 {
@@ -14,15 +21,10 @@ public class Grave : MonoBehaviour
     private float curGraveHealth;
     private float curHealthRatio => curGraveHealth / graveMaxHealth;
 
-    //private GameObject[] currentOverlappingPlayers;
     private int numOverlappingPlayers = 0;
 
-
-
-    /*
     [SerializeField]
-    private GraveRender graveRender;*/
-
+    private GraveAndLootGameEvent graveLootedEvent;
     
     [SerializeField]
     private GraveUI graveUI;
@@ -39,6 +41,11 @@ public class Grave : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (healthStatus == GraveHealthStatus.CompletelyLooted)
+        {
+            return;
+        }
+
         var digComponent = collision.gameObject.GetComponent<DigController>();
         if (digComponent != null)
         {
@@ -63,9 +70,25 @@ public class Grave : MonoBehaviour
 
     public void Damage(float amount)
     {
-        curGraveHealth -= amount;
+        curGraveHealth = Mathf.Max(0,  curGraveHealth - amount);
         graveUI.TryUpdateHealth(curHealthRatio);
+
+        if (curGraveHealth == 0)
+        {
+            LootGrave();
+        }
     }
 
-
+    private void LootGrave()
+    {
+        healthStatus = GraveHealthStatus.CompletelyLooted;
+        graveUI.RemoveBlinkingDigIcon();
+        graveUI.RemoveHealthBar();
+        var graveAndLoot = new GraveAndLoot
+        {
+            grave = this,
+            loot = loot,
+        };
+        graveLootedEvent.Raise(graveAndLoot);
+    }
 }
