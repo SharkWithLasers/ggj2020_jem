@@ -6,7 +6,7 @@ using UnityEngine;
 public class DigController : MonoBehaviour
 {
     [SerializeField]
-    private float digSpeed = 1f;
+    private float digDamagePerPress = 1f;
 
     [SerializeField]
     private PlayerMeta playerMeta;
@@ -26,6 +26,7 @@ public class DigController : MonoBehaviour
     {
         if (overlappingGrave.HasValue)
         {
+            //overlappingGrave.Value.
             Debug.Log("we diggin tho");
         }
     }
