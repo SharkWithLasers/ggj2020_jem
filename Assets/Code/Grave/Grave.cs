@@ -12,9 +12,20 @@ public class Grave : MonoBehaviour
 
     private float graveMaxHealth = 100f;
     private float curGraveHealth;
+    private float curHealthRatio => curGraveHealth / graveMaxHealth;
 
     //private GameObject[] currentOverlappingPlayers;
     private int numOverlappingPlayers = 0;
+
+
+
+    /*
+    [SerializeField]
+    private GraveRender graveRender;*/
+
+    
+    [SerializeField]
+    private GraveUI graveUI;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +37,6 @@ public class Grave : MonoBehaviour
         curGraveHealth = graveMaxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var digComponent = collision.gameObject.GetComponent<DigController>();
@@ -39,6 +44,8 @@ public class Grave : MonoBehaviour
         {
             digComponent.SetOverlappinGrave(this);
             numOverlappingPlayers++;
+            graveUI.AddBlinkingDigIcon();
+            graveUI.AddAndModifyHealthBar(curHealthRatio);
         }
     }
 
@@ -48,8 +55,16 @@ public class Grave : MonoBehaviour
         if (digComponent != null)
         {
             digComponent.RemoveOverlappingGrave();
-            numOverlappingPlayers--;
+            numOverlappingPlayers = Mathf.Max(numOverlappingPlayers - 1, 0);
+            graveUI.RemoveBlinkingDigIcon();
+            graveUI.RemoveHealthBar();
         }
+    }
+
+    public void Damage(float amount)
+    {
+        curGraveHealth -= amount;
+        graveUI.TryUpdateHealth(curHealthRatio);
     }
 
 
