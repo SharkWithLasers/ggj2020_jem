@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class LimbNodeController : MonoBehaviour
 {
-  public LimbNodeType bodyPartType;
+  public LimbNodeType limbType;
   public List<LimbNode> nodes;
 
   private void Start() {
     for (int i = 0; i < nodes.Count; i++)
     {
-      nodes[i].nodeType = bodyPartType;
+      nodes[i].nodeType = limbType;
     }
   }
 

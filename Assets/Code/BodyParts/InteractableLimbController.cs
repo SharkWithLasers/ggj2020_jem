@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class InteractableLimbController : MonoBehaviour
 {
+  // private void OnTriggerEnter2D(Collider2D other)
+  // {
+  //   CheckForInput(other);
+  // }
+
   private void OnTriggerStay2D(Collider2D other)
   {
-    if (Input.GetKeyDown(KeyCode.E))
+    CheckForInput(other);
+  }
+
+  private void CheckForInput(Collider2D other)
+  {
+    if (Input.GetKey(KeyCode.E) && other.name == "PlayerInteraction")
     {
-      other.GetComponent<BodyPartController>().AddBodyPart(
-        gameObject.GetComponent<LimbNodeController>()
-      );
+      Debug.Log(other.name);
+
+      LimbNodeController nodeController = gameObject.GetComponent<LimbNodeController>();
+      other.GetComponentInChildren<BodyPartController>().AddBodyPart(nodeController);
     }
   }
 }

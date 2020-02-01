@@ -7,6 +7,22 @@ InputManager:
   m_Axes:
   - serializedVersion: 3
     m_Name: Player1_Horizontal
+    descriptiveName: for wasd
+    descriptiveNegativeName: 
+    negativeButton: left
+    positiveButton: right
+    altNegativeButton: a
+    altPositiveButton: d
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Player1_Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: left
@@ -69,6 +85,22 @@ InputManager:
     type: 2
     axis: 0
     joyNum: 4
+  - serializedVersion: 3
+    m_Name: Player1_Vertical
+    descriptiveName: for wasd
+    descriptiveNegativeName: 
+    negativeButton: down
+    positiveButton: up
+    altNegativeButton: s
+    altPositiveButton: w
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 0
   - serializedVersion: 3
     m_Name: Player1_Vertical
     descriptiveName: 
