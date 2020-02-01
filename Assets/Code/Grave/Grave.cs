@@ -12,6 +12,7 @@ public class Grave : MonoBehaviour
 
     private float graveMaxHealth = 100f;
     private float curGraveHealth;
+    private float curHealthRatio => curGraveHealth / graveMaxHealth;
 
     //private GameObject[] currentOverlappingPlayers;
     private int numOverlappingPlayers = 0;
@@ -44,6 +45,7 @@ public class Grave : MonoBehaviour
             digComponent.SetOverlappinGrave(this);
             numOverlappingPlayers++;
             graveUI.AddBlinkingDigIcon();
+            graveUI.AddAndModifyHealthBar(curHealthRatio);
         }
     }
 
@@ -55,12 +57,14 @@ public class Grave : MonoBehaviour
             digComponent.RemoveOverlappingGrave();
             numOverlappingPlayers = Mathf.Max(numOverlappingPlayers - 1, 0);
             graveUI.RemoveBlinkingDigIcon();
+            graveUI.RemoveHealthBar();
         }
     }
 
     public void Damage(float amount)
     {
         curGraveHealth -= amount;
+        graveUI.TryUpdateHealth(curHealthRatio);
     }
 
 
