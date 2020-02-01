@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-  private float speed = 1f;
+  private float speed = 2f;
 
   private void Update()
   {

@@ -4,30 +4,48 @@ using UnityEngine;
 
 public class LimbNodeController : MonoBehaviour
 {
-  public class Entry {
-    public LimbNode node;
-    public bool attached;
-    public LimbNodeType preferredAttachment;
+  public LimbNodeType bodyPartType;
+  public List<LimbNode> nodes;
+
+  private void Start() {
+    for (int i = 0; i < nodes.Count; i++)
+    {
+      nodes[i].nodeType = bodyPartType;
+    }
   }
 
-  private List<Entry> nodes = new List<Entry>();
-
-  public void AddBodyPart(LimbNode node)
+  public LimbNode ResolveNode()
   {
-    
+    for (int i = 0; i < nodes.Count; i++)
+    {
+      if (nodes[i].attachedTo == LimbNodeType.NONE) {
+        return nodes[i];
+      }
+    }
+
+    return null;
   }
 
-  public void AddHand()
-  {}
-
-  public void AddLimb() {}
-
-  public void AddTorso() {}
-
-  public void AddFoot() {}
-
-  private bool CanAttachToLimb(Entry currentLimb, Entry limbToCheck)
+  public LimbNode ResolveNodeByType(LimbNodeType nodeType)
   {
-    return !currentLimb.attached;
+    for (int i = 0; i < nodes.Count; i++)
+    {
+      bool isCorrectTypeOfNode = (
+        nodes[i].attachedTo == LimbNodeType.NONE &&
+        nodes[i].nodeType == nodeType
+      );
+
+      if (isCorrectTypeOfNode) {
+        return nodes[i];
+      }
+    }
+
+    return null;
+  }
+
+  public void AttachNode(LimbNodeType nodeType)
+  {
+    LimbNode node = ResolveNodeByType(nodeType);
+    node.Attach(nodeType);
   }
 }
