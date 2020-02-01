@@ -18,9 +18,7 @@ public class LimbNodeController : MonoBehaviour
   }
 
   public void AddHand()
-  {
-    if 
-  }
+  {}
 
   public void AddLimb() {}
 
