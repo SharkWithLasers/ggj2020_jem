@@ -468,6 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01faed4cad3de42ad9c54278234a4ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  playerMeta: {fileID: 11400000, guid: 1b00ed523c65445788fb15eece872abe, type: 2}
 --- !u!114 &1997642523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2f6b07058284e93a2b3bd99e3cf793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  digSpeed: 1
+  playerMeta: {fileID: 0}
 --- !u!114 &1997642524
 MonoBehaviour:
   m_ObjectHideFlags: 0
