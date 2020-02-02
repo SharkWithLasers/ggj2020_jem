@@ -22,7 +22,8 @@ public class LootSpawner : ScriptableObject
 
         if (prefabToUse.HasValue)
         {
-            var prefabPosition = grave.transform.position + new Vector3(0.25f, 0.25f);
+            var prefabPosition = grave.transform.position
+                + new Vector3(UnityEngine.Random.Range(-0.3f, 0.3f), -1f);
             Instantiate(prefabToUse.Value, prefabPosition, Quaternion.identity);
         }
     }
