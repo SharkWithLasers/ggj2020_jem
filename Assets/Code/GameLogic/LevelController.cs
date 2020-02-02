@@ -11,9 +11,9 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void GenLevel()
     {
-        var sizeInUnits = new Vector2(100, 100);
+        var sizeInUnits = new Vector2(101, 101);
 
-        var numGraves = 100;
+        var numGraves = 20;
         var ratioLimbs = 0.8f;
         var ratioHands = 0.05f;
         var ratioFeet = 0.05f;

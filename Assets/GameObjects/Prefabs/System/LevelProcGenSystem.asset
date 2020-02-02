@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tombstonePrefabs:
   - {fileID: 9190876822569802246, guid: a6b03e3cde8d04601b331c2c839ae09b, type: 3}
-  backgroundPrefab: {fileID: 1072233961967757875, guid: ed188aaa3231a4f858d46d8ef431dc05,
+  - {fileID: 6874988735743823102, guid: 6674103c77a644aada05aba37d49922c, type: 3}
+  - {fileID: 1590422081147115978, guid: c79421f97b1c14df1bc75905fc06757c, type: 3}
+  backgroundPrefab: {fileID: 4675787675201746142, guid: e4f13c923cb1f46e4a381f846a9335ef,
     type: 3}
