@@ -6,8 +6,6 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] private LevelProcGeneration levelProcGen;
 
-    //[SerializeField] private 
-
     // Start is called before the first frame update
     void GenLevel()
     {
@@ -24,6 +22,9 @@ public class LevelController : MonoBehaviour
         };
 
         levelProcGen.GenerateLevel(levelGenInput);
+
+        // fuck it
+        GetComponent<LevelTimer>().OnLevelStarted();
     }
 
     private void Update()

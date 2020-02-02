@@ -10,6 +10,11 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] private GameEvent TimeForLevelFinishedEvent;
     private bool countingDown;
 
+    public void Start()
+    {
+        InitTimer();
+    }
+
     public void InitTimer()
     {
         countingDown = false;
