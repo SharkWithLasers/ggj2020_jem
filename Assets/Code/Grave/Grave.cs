@@ -83,6 +83,8 @@ public class Grave : MonoBehaviour
 
     private bool GetDiggable(PlayerInventory playerInventory)
     {
+        return true;
+
         if (loot != LimbNodeType.HEAD)
         {
             return true;
