@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3603011959408992938}
   - component: {fileID: 2682568699377310751}
   - component: {fileID: 2123018922672888833}
+  - component: {fileID: 4789489662833247698}
   m_Layer: 5
   m_Name: UIHead
   m_TagString: Untagged
@@ -73,6 +74,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4789489662833247698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432248952673561076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20b8410d47c314167a9e1418ef94cc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6318607627456102441
 GameObject:
   m_ObjectHideFlags: 0
