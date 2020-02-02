@@ -13,20 +13,14 @@ public class LevelController : MonoBehaviour
     {
         var sizeInUnits = new Vector2(101, 101);
 
-        var numGraves = 20;
-        var ratioLimbs = 0.8f;
-        var ratioHands = 0.05f;
-        var ratioFeet = 0.05f;
-        var ratioTorsos = 0.05f;
-
         var levelGenInput = new LevelGenInputs
         {
             sizeInUnits = sizeInUnits,
-            numberOfGraves = numGraves,
-            ratioLimbs = ratioLimbs,
-            ratioHands = ratioHands,
-            ratioFeet = ratioFeet,
-            ratioTorsos = ratioTorsos,
+            numLimbs = 10,
+            numHands = 6,
+            numFeet = 6,
+            numTorsos = 6,
+            numHeads = 1,
         };
 
         levelProcGen.GenerateLevel(levelGenInput);

@@ -7,15 +7,15 @@ public class LevelGenInputs
 {
     public Vector2 sizeInUnits;
 
-    public int numberOfGraves;
+    public int numLimbs;
 
-    public float ratioLimbs;
+    public int numFeet;
 
-    public float ratioFeet;
+    public int numHands;
 
-    public float ratioHands;
+    public int numTorsos;
 
-    public float ratioTorsos;
+    public int numHeads;
 }
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Systems/LevelProcGen")]
@@ -26,10 +26,10 @@ public class LevelProcGeneration : ScriptableObject
     [SerializeField] private GameObject backgroundPrefab;
 
 
-    private List<GameObject> currentGraveObjects;
+    private List<Grave> currentGraves;
 
     // RE
-    public List<GameObject> GenerateLevel(LevelGenInputs lgi)
+    public List<Grave> GenerateLevel(LevelGenInputs lgi)
     {
         ClearPreviousShit();
 
@@ -39,7 +39,7 @@ public class LevelProcGeneration : ScriptableObject
         GenerateObjectsByHaltonSequence(lgi);
 
         //graveobjects modified in halton sequence function
-        return currentGraveObjects;
+        return currentGraves;
     }
 
     void GenerateBackground(Vector2 sizeInUnits)
@@ -59,56 +59,44 @@ public class LevelProcGeneration : ScriptableObject
         var xPrime = lowPrimes[0];
         var yPrime = lowPrimes[1];
 
-        var curMax = levelGenInputs.ratioLimbs;
-        var maxIntLimbs = levelGenInputs.numberOfGraves * curMax;
-
-        curMax += levelGenInputs.ratioFeet;
-        var maxIntFeet = levelGenInputs.numberOfGraves * curMax;
-
-        curMax += levelGenInputs.ratioHands;
-        var maxIntHands = levelGenInputs.numberOfGraves * curMax;
-
-        curMax += levelGenInputs.ratioTorsos;
-        var maxIntTorsos = levelGenInputs.numberOfGraves * curMax;
-
-        for (int i = 0; i < levelGenInputs.numberOfGraves; i++)
+        void AddGraveWithLoot(LimbNodeType lootType, int numLoot)
         {
-            var location = new Vector3(
+            for (var i = 0; i < numLoot; i++)
+            {
+                var location = new Vector3(
                 GetHaltonSequenceNumber(goNumber, xPrime) * levelGenInputs.sizeInUnits.x - levelGenInputs.sizeInUnits.x / 2,
                 GetHaltonSequenceNumber(goNumber, yPrime) * levelGenInputs.sizeInUnits.y - levelGenInputs.sizeInUnits.y / 2,
                 0f);
 
-            var prefabIndex = Mathf.Min(
-                (int)(UnityEngine.Random.value * tombstonePrefabs.Length),
-                tombstonePrefabs.Length - 1);
+                var prefabIndex = Mathf.Min(
+                    (int)(UnityEngine.Random.value * tombstonePrefabs.Length),
+                    tombstonePrefabs.Length - 1);
 
-            var tombstoneGO = Instantiate(tombstonePrefabs[prefabIndex], location, Quaternion.identity);
-            currentGraveObjects.Add(tombstoneGO);
+                var tombstoneGO = Instantiate(tombstonePrefabs[prefabIndex], location, Quaternion.identity);
+                var tombStoneComponent = tombstoneGO.GetComponent<Grave>();
 
-            var lootType = i > maxIntTorsos
-                ? LimbNodeType.HEAD
-                : i > maxIntHands
-                    ? LimbNodeType.TORSO
-                    : i > maxIntFeet
-                       ? LimbNodeType.HAND
-                       : i > maxIntLimbs
-                           ? LimbNodeType.FOOT
-                           : LimbNodeType.LIMB;
-
-            tombstoneGO.GetComponent<Grave>().SetLoot(lootType);
-
-            goNumber++;
+                currentGraves.Add(tombStoneComponent);
+                tombStoneComponent.SetLoot(lootType);
+                goNumber++;
+            }
         }
+
+        AddGraveWithLoot(LimbNodeType.LIMB, levelGenInputs.numLimbs);
+        AddGraveWithLoot(LimbNodeType.HAND, levelGenInputs.numHands);
+        AddGraveWithLoot(LimbNodeType.TORSO, levelGenInputs.numTorsos);
+        AddGraveWithLoot(LimbNodeType.FOOT, levelGenInputs.numFeet);
+        AddGraveWithLoot(LimbNodeType.HEAD, levelGenInputs.numHeads);
+
     }
 
     private void ClearPreviousShit()
     {
-        foreach (var go in currentGraveObjects)
+        foreach (var go in currentGraves)
         {
             Destroy(go.gameObject);
         }
 
-        currentGraveObjects = new List<GameObject>();
+        currentGraves = new List<Grave>();
     }
 
     private static float GetHaltonSequenceNumber(int index, int basePrime)
