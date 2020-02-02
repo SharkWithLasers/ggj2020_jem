@@ -12,7 +12,7 @@ public class GraveAndLoot
 
 public class Grave : MonoBehaviour
 {
-    private LimbNodeType loot;
+    private LimbNodeType loot = LimbNodeType.LIMB;
 
     private GraveHealthStatus healthStatus;
     private GraveInteractionStatus interactionStatus;
@@ -32,11 +32,14 @@ public class Grave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loot = LimbNodeType.LIMB;
-
         healthStatus = GraveHealthStatus.Untouched;
 
         curGraveHealth = graveMaxHealth;
+    }
+
+    public void SetLoot(LimbNodeType lootLimb)
+    {
+        loot = lootLimb;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,6 +73,11 @@ public class Grave : MonoBehaviour
 
     public void Damage(float amount)
     {
+        if (healthStatus == GraveHealthStatus.CompletelyLooted)
+        {
+            return;
+        }
+
         curGraveHealth = Mathf.Max(0,  curGraveHealth - amount);
         graveUI.TryUpdateHealth(curHealthRatio);
 
