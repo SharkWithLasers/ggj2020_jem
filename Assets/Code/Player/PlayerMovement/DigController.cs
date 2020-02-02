@@ -17,6 +17,8 @@ public class DigController : MonoBehaviour
     private bool _isDiggable = false;
     [SerializeField] public PlayerInventory playerInventory;
 
+    public GameObject sfxManager;
+
     void Update()
     {
         // TODO: Add controller support
@@ -36,6 +38,10 @@ public class DigController : MonoBehaviour
         {
             handAnimator.SetBool("isDigging", true);
             overlappingGrave.Value.Damage(digDamagePerPress, playerInventory);
+            if (sfxManager != null)
+            {
+                sfxManager.SendMessage("DigSound");
+            }
         }
     }
 
