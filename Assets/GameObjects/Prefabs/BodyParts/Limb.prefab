@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ffcd8188fc04f9db33d326493d6dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limbType: 0
+  limbType: 1
   nodes:
   - {fileID: 6768680191464531364}
   - {fileID: 6768680191811672126}

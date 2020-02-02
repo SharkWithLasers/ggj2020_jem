@@ -22,7 +22,7 @@ public class DigController : MonoBehaviour
         {
             TryDig();
         }
-        else
+        else if (handAnimator.GetBool("isDigging"))
         {
             handAnimator.SetBool("isDigging", false);
         }

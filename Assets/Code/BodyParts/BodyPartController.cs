@@ -10,18 +10,26 @@ public class BodyPartController : MonoBehaviour
     public LimbNodeType limbNodeType;
   }
 
+  public InventoryController inventory;
   private BuffsController buffsController;
   private List<Entry> bodyParts = new List<Entry>();
+  private List<LimbNodeType> bodyPartsList = new List<LimbNodeType>();
 
   // Initialize the first node we can use to connect
   private void Start() {
     buffsController = gameObject.GetComponentInParent<BuffsController>();
 
-    Entry entry = new Entry();
-    entry.limbNodeController = gameObject.GetComponentInChildren<LimbNodeController>();
-    entry.limbNodeType = entry.limbNodeController.limbType;
+    // Entry entry = new Entry();
+    // entry.limbNodeController = gameObject.GetComponentInChildren<LimbNodeController>();
+    // entry.limbNodeType = entry.limbNodeController.limbType;
 
-    bodyParts.Add(entry);
+    bodyPartsList.Add(LimbNodeType.HAND);
+  }
+
+  public void AddBodyPartToList(LimbNodeType bodyPart)
+  {
+    bodyPartsList.Add(bodyPart);
+    inventory.Add(bodyPart);
   }
 
   public void AddBodyPart(LimbNodeController bodyPart)
