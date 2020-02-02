@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -19,35 +21,13 @@ public class MainMenu : MonoBehaviour
 
   private void Update()
   {
-    if (Input.GetKey(KeyCode.E) || Input.GetButtonDown($"Player1_AButton"))
+    if (Input.GetKey(KeyCode.E)
+            || Input.GetButtonDown($"Player1_AButton")
+            || Input.GetButtonDown($"Player2_AButton"))
     {
-      int currentSelection = ResolveSelectedIndex();
 
-      if (currentSelection == 0) {
-        SinglePlayerMode();
-      }
-      else
-      {
         MultiplayerMode();
-      }
     }
-
-    if (!canInteract) return;
-
-    float yInput = Input.GetAxisRaw("Player1_Vertical");
-
-    int index = ResolveSelectedIndex();
-
-    if (
-      yInput == 0 ||
-      index == 0 && yInput > 0 ||
-      index == 1 && yInput < 0
-    ) return;
-
-    UpdateSelected(
-      yInput == 1 ? index - 1 : index + 1,
-      index
-    );
   }
 
   private int ResolveSelectedIndex()
@@ -62,7 +42,8 @@ public class MainMenu : MonoBehaviour
 
   private void MultiplayerMode()
   {
-
+        //1 is other scene
+        SceneManager.LoadScene(1);
   }
 
   private void UpdateSelected(int selectedIndex, int oldIndex = -1)

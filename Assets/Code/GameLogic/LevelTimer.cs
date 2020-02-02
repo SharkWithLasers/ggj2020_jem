@@ -8,9 +8,10 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] private FloatVariable levelDuration;
 
     [SerializeField] private GameEvent TimeForLevelFinishedEvent;
+
     private bool countingDown;
 
-    public void Start()
+    public void Awake()
     {
         InitTimer();
     }
