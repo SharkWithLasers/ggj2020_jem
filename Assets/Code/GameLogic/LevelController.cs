@@ -6,6 +6,13 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] private LevelProcGeneration levelProcGen;
 
+    //[SerializeField]
+
+    public void Start()
+    {
+        GenLevel();
+    }
+
     // Start is called before the first frame update
     void GenLevel()
     {
