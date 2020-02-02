@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handAnimator: {fileID: 5590381995107305713}
-  digDamagePerPress: 1
+  digDamagePerPress: 5
   playerMeta: {fileID: 11400000, guid: 1b00ed523c65445788fb15eece872abe, type: 2}
 --- !u!114 &370657786681129735
 MonoBehaviour:
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d154febee2724e8da3819ae972444f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
 --- !u!1 &1252806114058209256
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16262b4cc30447f68cb363f24119811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementController: {fileID: 0}
-  digController: {fileID: 0}
+  movementController: {fileID: 1252806114058209262}
+  digController: {fileID: 1252806112642024139}
 --- !u!1 &1252806114191912253
 GameObject:
   m_ObjectHideFlags: 0
