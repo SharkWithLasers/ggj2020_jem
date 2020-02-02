@@ -47,10 +47,12 @@ public class BodyPartController : MonoBehaviour
 
     bodyParts.Add(entry);
 
-    bodyPart.AttachNode(newBodyPartNode.nodeType);
+    Vector3 newBodyPartNodeLocation = bodyPart.AttachNode(newBodyPartNode.nodeType);
     currentBodyPartEntry.limbNodeController.AttachNode(
       currentBodyPartEntry.limbNodeController.ResolveNode().nodeType
     );
+
+    bodyPart.SetPosition(newBodyPartNodeLocation, currentBodyPartEntry.limbNodeController);
 
     Buffs buffs = bodyPart.GetComponent<Buffs>();
 

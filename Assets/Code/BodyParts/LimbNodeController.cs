@@ -43,9 +43,25 @@ public class LimbNodeController : MonoBehaviour
     return null;
   }
 
-  public void AttachNode(LimbNodeType nodeType)
+  public Vector3 AttachNode(LimbNodeType nodeType)
   {
     LimbNode node = ResolveNodeByType(nodeType);
     node.Attach(nodeType);
+    return node.gameObject.transform.localPosition;
+  }
+
+  public void SetPosition(Vector3 nodeLocation, LimbNodeController attachPoint)
+  {
+    Vector3 attachPointLocation = attachPoint.gameObject.transform.position;
+
+    float xOffset = nodeLocation.x;
+    float yOffset = nodeLocation.y;
+    
+    transform.position = new Vector2(
+      xOffset > 0 ? attachPointLocation.x + xOffset : attachPointLocation.x - xOffset,
+      yOffset > 0 ? attachPointLocation.y + yOffset : attachPointLocation.y - yOffset
+    );
+
+    transform.rotation = attachPoint.gameObject.transform.parent.rotation;
   }
 }
