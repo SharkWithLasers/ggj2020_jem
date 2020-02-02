@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class DigController : MonoBehaviour
 {
+    public Animator handAnimator;
+
     [SerializeField]
     private float digDamagePerPress = 1f;
 
@@ -20,12 +22,17 @@ public class DigController : MonoBehaviour
         {
             TryDig();
         }
+        else
+        {
+            handAnimator.SetBool("isDigging", false);
+        }
     }
 
     public void TryDig()
     {
         if (overlappingGrave.HasValue)
         {
+            handAnimator.SetBool("isDigging", true);
             overlappingGrave.Value.Damage(digDamagePerPress);
         }
     }
