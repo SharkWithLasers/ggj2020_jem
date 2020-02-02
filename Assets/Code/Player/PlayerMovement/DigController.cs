@@ -14,6 +14,8 @@ public class DigController : MonoBehaviour
     private PlayerMeta playerMeta;
 
     private Option<Grave> overlappingGrave = Option<Grave>.None;
+    private bool _isDiggable = false;
+    [SerializeField] public PlayerInventory playerInventory;
 
     void Update()
     {
@@ -30,21 +32,23 @@ public class DigController : MonoBehaviour
 
     public void TryDig()
     {
-        if (overlappingGrave.HasValue)
+        if (overlappingGrave.HasValue && _isDiggable)
         {
             handAnimator.SetBool("isDigging", true);
-            overlappingGrave.Value.Damage(digDamagePerPress);
+            overlappingGrave.Value.Damage(digDamagePerPress, playerInventory);
         }
     }
 
-    public void SetOverlappinGrave(Grave grave)
+    public void SetOverlappinGrave(Grave grave, bool isDiggable)
     {
         overlappingGrave = grave;
+        _isDiggable = isDiggable;
     }
 
     public void RemoveOverlappingGrave()
     {
         overlappingGrave = Option<Grave>.None;
+        _isDiggable = false;
     }
 
     public void IncreaseDigDamage(float modifier)

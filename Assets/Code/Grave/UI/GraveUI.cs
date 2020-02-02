@@ -19,17 +19,29 @@ public class GraveUI : MonoBehaviour
 
     private Option<BarScale> curGraveHealthBar = Option<BarScale>.None;
 
+    [SerializeField]
+    private Vector2 headRequirementsUI;
+    [SerializeField]
+    private GameObject headRequirementUIPrefab;
 
-    // Start is called before the first frame update
-    void Start()
+    private Option<GameObject> headReqsGO = Option<GameObject>.None;
+
+    public void AddHeadReqsUI()
     {
-        
+        if (!headReqsGO.HasValue)
+        {
+            headReqsGO = Instantiate(headRequirementUIPrefab, transform);
+            headReqsGO.Value.transform.localPosition = headRequirementsUI;
+        }
+        headReqsGO.Value.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveHeadReqsUI()
     {
-        
+        if (headReqsGO.HasValue)
+        {
+            headReqsGO.Value.SetActive(false);
+        }
     }
 
     public void AddAndModifyHealthBar(float healthRatio)

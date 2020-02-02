@@ -25,11 +25,11 @@ public class LevelProcGeneration : ScriptableObject
 
     [SerializeField] private GameObject backgroundPrefab;
 
-    private List<GameObject> curGameObjects;
 
-    private List<GameObject> backgroundGameObjects;
+    private List<GameObject> currentGraveObjects;
 
-    public void GenerateLevel(LevelGenInputs lgi)
+    // RE
+    public List<GameObject> GenerateLevel(LevelGenInputs lgi)
     {
         ClearPreviousShit();
 
@@ -37,6 +37,9 @@ public class LevelProcGeneration : ScriptableObject
         GenerateBackground(lgi.sizeInUnits);
 
         GenerateObjectsByHaltonSequence(lgi);
+
+        //graveobjects modified in halton sequence function
+        return currentGraveObjects;
     }
 
     void GenerateBackground(Vector2 sizeInUnits)
@@ -45,26 +48,6 @@ public class LevelProcGeneration : ScriptableObject
         bgGO.transform.localScale = new Vector3(sizeInUnits.x, sizeInUnits.y, 1);
         bgGO.GetComponent<BackgroundTextureScale>().Setup(sizeInUnits);
     }
-
-    /*
-    void GenerateBackground(Vector2 sizeInUnits)
-    {
-        var xMin = -(sizeInUnits.x / 2);
-        var xMax = sizeInUnits.y / 2;
-
-        var yMin = -(sizeInUnits.y / 2);
-        var yMax = sizeInUnits.y / 2;
-
-        for (var curX = xMin; curX <= xMax; curX += 2)
-        {
-            for (var curY = yMin; curY <= yMax; curY += 2)
-            {
-                var bgGO = Instantiate(backgroundPrefab, new Vector2(curX, curY), Quaternion.identity);
-
-                backgroundGameObjects.Add(bgGO);
-            }
-        }
-    }*/
 
     void GenerateObjectsByHaltonSequence(
         LevelGenInputs levelGenInputs)
@@ -100,7 +83,7 @@ public class LevelProcGeneration : ScriptableObject
                 tombstonePrefabs.Length - 1);
 
             var tombstoneGO = Instantiate(tombstonePrefabs[prefabIndex], location, Quaternion.identity);
-            curGameObjects.Add(tombstoneGO);
+            currentGraveObjects.Add(tombstoneGO);
 
             var lootType = i > maxIntTorsos
                 ? LimbNodeType.HEAD
@@ -120,12 +103,12 @@ public class LevelProcGeneration : ScriptableObject
 
     private void ClearPreviousShit()
     {
-        foreach (var go in curGameObjects)
+        foreach (var go in currentGraveObjects)
         {
             Destroy(go.gameObject);
         }
 
-        curGameObjects = new List<GameObject>();
+        currentGraveObjects = new List<GameObject>();
     }
 
     private static float GetHaltonSequenceNumber(int index, int basePrime)

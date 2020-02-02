@@ -49,6 +49,9 @@ MonoBehaviour:
   graveHealthBarLocalPosition: {x: -0.5, y: 1.1}
   graveHealthBarPrefab: {fileID: 1999492042037123707, guid: 9d5a8700452894e9fb3787bbf336744f,
     type: 3}
+  headRequirementsUI: {x: 0, y: 2.5}
+  headRequirementUIPrefab: {fileID: 6372355720173018152, guid: a1fc4181cdd83472b82d5812a5835b67,
+    type: 3}
 --- !u!1 &1298981468184244020
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,5 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfc27bdd19a74770b35a5e609ff3b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loot: 1
   graveLootedEvent: {fileID: 11400000, guid: 5a2be9177fb964f01974cfeb965f0137, type: 2}
   graveUI: {fileID: 5415537100337733630}
