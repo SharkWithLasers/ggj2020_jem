@@ -1341,6 +1341,12 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 721546559617386208}
+    - target: {fileID: 1252806112642024139, guid: 4c1528ca75d224696a9c6db1c18e6a42,
+        type: 3}
+      propertyPath: playerMeta
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d55d260cf6ce4fc5baad3dc46efa534,
+        type: 2}
     - target: {fileID: 1252806114058209256, guid: 4c1528ca75d224696a9c6db1c18e6a42,
         type: 3}
       propertyPath: m_Name
