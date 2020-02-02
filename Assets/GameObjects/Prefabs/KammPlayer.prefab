@@ -97,6 +97,7 @@ MonoBehaviour:
   handAnimator: {fileID: 5590381995107305713}
   digDamagePerPress: 5
   playerMeta: {fileID: 11400000, guid: 1b00ed523c65445788fb15eece872abe, type: 2}
+  playerInventory: {fileID: 11400000, guid: ecd5e4d23bf1347ceab6af0cb70edb1b, type: 2}
 --- !u!114 &370657786681129735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: ecd5e4d23bf1347ceab6af0cb70edb1b, type: 2}
 --- !u!1 &1252806114058209256
 GameObject:
   m_ObjectHideFlags: 0

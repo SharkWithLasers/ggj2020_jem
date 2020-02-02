@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using UnityEngine;
-
 
 public class GraveAndLoot
 {
@@ -10,8 +10,20 @@ public class GraveAndLoot
     public Grave grave;
 }
 
+public static class GraveConstants
+{
+    public static Dictionary<LimbNodeType, int> headRequirements = new Dictionary<LimbNodeType, int>
+    {
+        { LimbNodeType.HAND, 2 },
+        { LimbNodeType.FOOT, 2 },
+        { LimbNodeType.TORSO, 1 },
+        { LimbNodeType.LIMB, 4 },
+    };
+}
+
 public class Grave : MonoBehaviour
 {
+    [SerializeField]
     private LimbNodeType loot = LimbNodeType.LIMB;
 
     private GraveHealthStatus healthStatus;
@@ -52,11 +64,40 @@ public class Grave : MonoBehaviour
         var digComponent = collision.gameObject.GetComponent<DigController>();
         if (digComponent != null)
         {
-            digComponent.SetOverlappinGrave(this);
+
+            var isDiggable = GetDiggable(digComponent.playerInventory);
+
+            digComponent.SetOverlappinGrave(this, isDiggable);
             numOverlappingPlayers++;
-            graveUI.AddBlinkingDigIcon();
-            graveUI.AddAndModifyHealthBar(curHealthRatio);
+
+            if (isDiggable)
+            {
+                graveUI.AddBlinkingDigIcon();
+                graveUI.AddAndModifyHealthBar(curHealthRatio);
+            }
         }
+    }
+
+    private bool GetDiggable(PlayerInventory playerInventory)
+    {
+        if (loot != LimbNodeType.HEAD)
+        {
+            return true;
+        }
+
+        foreach (var kvp in GraveConstants.headRequirements)
+        {
+            var headReqType = kvp.Key;
+            var headReqCount = kvp.Value;
+
+            if (!playerInventory.bodyPartToCount.ContainsKey(headReqType) ||
+                playerInventory.bodyPartToCount[headReqType] < headReqCount)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -71,7 +112,7 @@ public class Grave : MonoBehaviour
         }
     }
 
-    public void Damage(float amount)
+    public void Damage(float amount, PlayerInventory playerInventory)
     {
         if (healthStatus == GraveHealthStatus.CompletelyLooted)
         {
