@@ -11,7 +11,7 @@ public class DigController : MonoBehaviour
     [SerializeField]
     private PlayerMeta playerMeta;
 
-    private Option<Grave> overlappingGrave;
+    private Option<Grave> overlappingGrave = Option<Grave>.None;
 
     void Update()
     {
@@ -26,9 +26,7 @@ public class DigController : MonoBehaviour
     {
         if (overlappingGrave.HasValue)
         {
-            //overlappingGrave.Value.
-            //Debug.Log("we diggin tho");
-            overlappingGrave.Value.Damage(2);
+            overlappingGrave.Value.Damage(digDamagePerPress);
         }
     }
 
