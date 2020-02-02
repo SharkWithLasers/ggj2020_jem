@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class InventoryController : MonoBehaviour
 {
+
+
   public GameObject handPrefab;
   public GameObject limbPrefab;
   public GameObject footPrefab;
@@ -21,4 +23,9 @@ public class InventoryController : MonoBehaviour
       Instantiate(footPrefab, transform);
     }
   }
+
+    public void OnInventoryChanged()
+    {
+
+    }
 }

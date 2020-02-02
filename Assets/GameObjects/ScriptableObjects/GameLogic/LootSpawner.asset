@@ -20,3 +20,5 @@ MonoBehaviour:
     type: 3}
   torsoLootPrefab: {fileID: 3204804401346511130, guid: 56c44aaa2954d45a096b544d959fbcfc,
     type: 3}
+  headLootPrefab: {fileID: 8654576172667016704, guid: 4737b00183ece40128560c07f32e2cad,
+    type: 3}

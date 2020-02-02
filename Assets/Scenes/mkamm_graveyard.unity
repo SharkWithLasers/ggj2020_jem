@@ -244,6 +244,106 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1831328432931787768, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831328432931787768, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831328432931787768, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831328432931787768, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831328432931787768, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287210581262379498, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287210581262379498, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287210581262379498, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287210581262379498, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287210581262379498, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634771906820050088, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634771906820050088, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634771906820050088, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634771906820050088, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634771906820050088, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370797441178195373, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370797441178195373, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370797441178195373, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370797441178195373, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370797441178195373, guid: 77fe6cfb0010e428aa2f14d872a3aa99,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77fe6cfb0010e428aa2f14d872a3aa99, type: 3}
 --- !u!114 &393444492 stripped

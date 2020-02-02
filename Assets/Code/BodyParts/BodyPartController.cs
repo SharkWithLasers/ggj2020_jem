@@ -10,7 +10,6 @@ public class BodyPartController : MonoBehaviour
     public LimbNodeType limbNodeType;
   }
 
-  public InventoryController inventory;
   private BuffsController buffsController;
   private List<Entry> bodyParts = new List<Entry>();
 
@@ -21,17 +20,12 @@ public class BodyPartController : MonoBehaviour
   private void Start() {
     buffsController = gameObject.GetComponentInParent<BuffsController>();
 
-        // Entry entry = new Entry();
-        // entry.limbNodeController = gameObject.GetComponentInChildren<LimbNodeController>();
-        // entry.limbNodeType = entry.limbNodeController.limbType;
-
         playerInventory.AddToInv(LimbNodeType.HAND);
   }
 
   public void AddBodyPartToList(LimbNodeType bodyPart)
   {
         playerInventory.AddToInv(bodyPart);
-        inventory.Add(bodyPart);
   }
 
   public void AddBodyPart(LimbNodeController bodyPart)
