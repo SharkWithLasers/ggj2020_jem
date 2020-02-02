@@ -75,6 +75,10 @@ public class Grave : MonoBehaviour
                 graveUI.AddBlinkingDigIcon();
                 graveUI.AddAndModifyHealthBar(curHealthRatio);
             }
+            else
+            {
+                graveUI.AddHeadReqsUI();
+            }
         }
     }
 
@@ -109,6 +113,7 @@ public class Grave : MonoBehaviour
             numOverlappingPlayers = Mathf.Max(numOverlappingPlayers - 1, 0);
             graveUI.RemoveBlinkingDigIcon();
             graveUI.RemoveHealthBar();
+            graveUI.RemoveHeadReqsUI();
         }
     }
 
@@ -133,6 +138,8 @@ public class Grave : MonoBehaviour
         healthStatus = GraveHealthStatus.CompletelyLooted;
         graveUI.RemoveBlinkingDigIcon();
         graveUI.RemoveHealthBar();
+        graveUI.RemoveHeadReqsUI();
+
         var graveAndLoot = new GraveAndLoot
         {
             grave = this,
