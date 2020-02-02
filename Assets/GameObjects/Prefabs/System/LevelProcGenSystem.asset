@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0792619964d45eca2d77c62b10682e, type: 3}
+  m_Name: LevelProcGenSystem
+  m_EditorClassIdentifier: 
+  tombstonePrefabs:
+  - {fileID: 9190876822569802246, guid: a6b03e3cde8d04601b331c2c839ae09b, type: 3}
+  - {fileID: 6874988735743823102, guid: 6674103c77a644aada05aba37d49922c, type: 3}
+  - {fileID: 1590422081147115978, guid: c79421f97b1c14df1bc75905fc06757c, type: 3}
+  backgroundPrefab: {fileID: 4675787675201746142, guid: e4f13c923cb1f46e4a381f846a9335ef,
+    type: 3}
