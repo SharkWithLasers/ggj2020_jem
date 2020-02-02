@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1252806112642024138}
   - component: {fileID: 1252806112642024133}
   - component: {fileID: 1252806112642024139}
+  - component: {fileID: 370657786681129735}
   m_Layer: 8
   m_Name: PlayerInteraction
   m_TagString: Untagged
@@ -92,8 +93,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2f6b07058284e93a2b3bd99e3cf793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handAnimator: {fileID: 0}
   digDamagePerPress: 1
   playerMeta: {fileID: 11400000, guid: 1b00ed523c65445788fb15eece872abe, type: 2}
+--- !u!114 &370657786681129735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252806112642024135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d154febee2724e8da3819ae972444f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1252806114058209256
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1252806114058209257}
   - component: {fileID: 1252806114058209262}
+  - component: {fileID: 8026312682976125326}
   m_Layer: 8
   m_Name: KammPlayer
   m_TagString: Untagged
@@ -141,6 +156,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   playerMeta: {fileID: 11400000, guid: 1b00ed523c65445788fb15eece872abe, type: 2}
+  playerInteraction: {fileID: 1252806112642024135}
+  handAnimator: {fileID: 0}
+--- !u!114 &8026312682976125326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252806114058209256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16262b4cc30447f68cb363f24119811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementController: {fileID: 0}
+  digController: {fileID: 0}
 --- !u!1 &1252806114191912253
 GameObject:
   m_ObjectHideFlags: 0

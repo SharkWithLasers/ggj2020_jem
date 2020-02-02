@@ -11,6 +11,7 @@ public class PlayerMovementController : MonoBehaviour
     private PlayerMeta playerMeta;
 
     public GameObject playerInteraction;
+    public Animator handAnimator;
 
     private void Start()
     {
@@ -31,6 +32,10 @@ public class PlayerMovementController : MonoBehaviour
 
         FaceXAxis(xDirection);
         FaceYAxis(yDirection);
+
+        if (xDirection == 0 && yDirection == 0) {
+          handAnimator.SetBool("isMoving", false);
+        }
     }
 
     public void IncreaseSpeed(float modifier)
@@ -46,6 +51,8 @@ public class PlayerMovementController : MonoBehaviour
     private void FaceXAxis(float xDirection)
     {
       if (xDirection > 0 || xDirection < 0) {
+        handAnimator.SetBool("isMoving", true);
+
         playerInteraction.transform.localScale = new Vector3(
           xDirection,
           playerInteraction.transform.localScale.y,
@@ -63,6 +70,8 @@ public class PlayerMovementController : MonoBehaviour
     private void FaceYAxis(float yDirection)
     {
       if (yDirection > 0 || yDirection < 0) {
+        handAnimator.SetBool("isMoving", true);
+
         playerInteraction.transform.localScale = new Vector3(
           playerInteraction.transform.localScale.x,
           yDirection,
