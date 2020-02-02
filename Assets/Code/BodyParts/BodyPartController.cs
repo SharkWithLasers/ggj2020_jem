@@ -13,15 +13,19 @@ public class BodyPartController : MonoBehaviour
   private BuffsController buffsController;
   private List<Entry> bodyParts = new List<Entry>();
 
+    [SerializeField]
+    private PlayerInventory playerInventory;
+
   // Initialize the first node we can use to connect
   private void Start() {
     buffsController = gameObject.GetComponentInParent<BuffsController>();
 
-    Entry entry = new Entry();
-    entry.limbNodeController = gameObject.GetComponentInChildren<LimbNodeController>();
-    entry.limbNodeType = entry.limbNodeController.limbType;
+        playerInventory.AddToInv(LimbNodeType.HAND);
+  }
 
-    bodyParts.Add(entry);
+  public void AddBodyPartToList(LimbNodeType bodyPart)
+  {
+        playerInventory.AddToInv(bodyPart);
   }
 
   public void AddBodyPart(LimbNodeController bodyPart)
@@ -47,10 +51,12 @@ public class BodyPartController : MonoBehaviour
 
     bodyParts.Add(entry);
 
-    bodyPart.AttachNode(newBodyPartNode.nodeType);
+    Vector3 newBodyPartNodeLocation = bodyPart.AttachNode(newBodyPartNode.nodeType);
     currentBodyPartEntry.limbNodeController.AttachNode(
       currentBodyPartEntry.limbNodeController.ResolveNode().nodeType
     );
+
+    bodyPart.SetPosition(newBodyPartNodeLocation, currentBodyPartEntry.limbNodeController);
 
     Buffs buffs = bodyPart.GetComponent<Buffs>();
 

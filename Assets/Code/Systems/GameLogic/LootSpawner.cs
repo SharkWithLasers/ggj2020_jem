@@ -11,6 +11,7 @@ public class LootSpawner : ScriptableObject
     [SerializeField] private GameObject limbLootPrefab;
     [SerializeField] private GameObject footLootPrefab;
     [SerializeField] private GameObject torsoLootPrefab;
+    [SerializeField] private GameObject headLootPrefab;
 
     public void OnGraveLooted(GraveAndLoot graveAndLoot)
     {
@@ -22,13 +23,19 @@ public class LootSpawner : ScriptableObject
 
         if (prefabToUse.HasValue)
         {
-            var prefabPosition = grave.transform.position + new Vector3(0.25f, 0.25f);
+            var prefabPosition = grave.transform.position
+                + new Vector3(UnityEngine.Random.Range(-0.3f, 0.3f), -1f);
             Instantiate(prefabToUse.Value, prefabPosition, Quaternion.identity);
         }
     }
 
     private Option<GameObject> GetPrefabToUse(LimbNodeType loot)
     {
+        if (loot == LimbNodeType.HEAD)
+        {
+            return headLootPrefab;
+        }
+
         if (loot == LimbNodeType.HAND)
         {
             return handLootPrefab;

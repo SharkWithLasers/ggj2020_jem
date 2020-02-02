@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using UnityEngine;
-
 
 public class GraveAndLoot
 {
@@ -10,9 +10,20 @@ public class GraveAndLoot
     public Grave grave;
 }
 
+public static class GraveConstants
+{
+    public static Dictionary<LimbNodeType, int> headRequirements = new Dictionary<LimbNodeType, int>
+    {
+        { LimbNodeType.HAND, 2 },
+        { LimbNodeType.FOOT, 2 },
+        { LimbNodeType.TORSO, 1 },
+        { LimbNodeType.LIMB, 4 },
+    };
+}
+
 public class Grave : MonoBehaviour
 {
-    private LimbNodeType loot;
+    public LimbNodeType loot = LimbNodeType.LIMB;
 
     private GraveHealthStatus healthStatus;
     private GraveInteractionStatus interactionStatus;
@@ -32,11 +43,14 @@ public class Grave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loot = LimbNodeType.LIMB;
-
         healthStatus = GraveHealthStatus.Untouched;
 
         curGraveHealth = graveMaxHealth;
+    }
+
+    public void SetLoot(LimbNodeType lootLimb)
+    {
+        loot = lootLimb;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,11 +63,44 @@ public class Grave : MonoBehaviour
         var digComponent = collision.gameObject.GetComponent<DigController>();
         if (digComponent != null)
         {
-            digComponent.SetOverlappinGrave(this);
+
+            var isDiggable = GetDiggable(digComponent.playerInventory);
+
+            digComponent.SetOverlappinGrave(this, isDiggable);
             numOverlappingPlayers++;
-            graveUI.AddBlinkingDigIcon();
-            graveUI.AddAndModifyHealthBar(curHealthRatio);
+
+            if (isDiggable)
+            {
+                graveUI.AddBlinkingDigIcon();
+                graveUI.AddAndModifyHealthBar(curHealthRatio);
+            }
+            else
+            {
+                graveUI.AddHeadReqsUI();
+            }
         }
+    }
+
+    private bool GetDiggable(PlayerInventory playerInventory)
+    {
+        if (loot != LimbNodeType.HEAD)
+        {
+            return true;
+        }
+
+        foreach (var kvp in GraveConstants.headRequirements)
+        {
+            var headReqType = kvp.Key;
+            var headReqCount = kvp.Value;
+
+            if (!playerInventory.bodyPartToCount.ContainsKey(headReqType) ||
+                playerInventory.bodyPartToCount[headReqType] < headReqCount)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -65,11 +112,17 @@ public class Grave : MonoBehaviour
             numOverlappingPlayers = Mathf.Max(numOverlappingPlayers - 1, 0);
             graveUI.RemoveBlinkingDigIcon();
             graveUI.RemoveHealthBar();
+            graveUI.RemoveHeadReqsUI();
         }
     }
 
-    public void Damage(float amount)
+    public void Damage(float amount, PlayerInventory playerInventory)
     {
+        if (healthStatus == GraveHealthStatus.CompletelyLooted)
+        {
+            return;
+        }
+
         curGraveHealth = Mathf.Max(0,  curGraveHealth - amount);
         graveUI.TryUpdateHealth(curHealthRatio);
 
@@ -84,6 +137,8 @@ public class Grave : MonoBehaviour
         healthStatus = GraveHealthStatus.CompletelyLooted;
         graveUI.RemoveBlinkingDigIcon();
         graveUI.RemoveHealthBar();
+        graveUI.RemoveHeadReqsUI();
+
         var graveAndLoot = new GraveAndLoot
         {
             grave = this,

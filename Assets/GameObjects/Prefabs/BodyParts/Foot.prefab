@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ffcd8188fc04f9db33d326493d6dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limbType: 0
+  limbType: 3
   nodes:
   - {fileID: 319907499290754609}
 --- !u!114 &8654576171698643520
@@ -215,6 +215,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6964307188851013024, guid: 2b167661b12c84caa836982553666188,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 487594491
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964307188851013024, guid: 2b167661b12c84caa836982553666188,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b167661b12c84caa836982553666188, type: 3}
 --- !u!4 &6343647790655403271 stripped
@@ -233,12 +243,12 @@ PrefabInstance:
     - target: {fileID: 8965454097255700035, guid: b5a0efc349a36495b87e2d4254879fff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8965454097255700035, guid: b5a0efc349a36495b87e2d4254879fff,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 8965454097255700035, guid: b5a0efc349a36495b87e2d4254879fff,
         type: 3}
