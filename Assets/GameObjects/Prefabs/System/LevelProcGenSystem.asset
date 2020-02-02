@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf0792619964d45eca2d77c62b10682e, type: 3}
-  m_Name: New Level Proc Generation
+  m_Name: LevelProcGenSystem
   m_EditorClassIdentifier: 
-  tombstonePrefabs: []
-  backgroundPrefab: {fileID: 0}
+  tombstonePrefabs:
+  - {fileID: 9190876822569802246, guid: a6b03e3cde8d04601b331c2c839ae09b, type: 3}
+  backgroundPrefab: {fileID: 1072233961967757875, guid: ed188aaa3231a4f858d46d8ef431dc05,
+    type: 3}

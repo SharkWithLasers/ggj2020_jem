@@ -41,6 +41,14 @@ public class LevelProcGeneration : ScriptableObject
 
     void GenerateBackground(Vector2 sizeInUnits)
     {
+        var bgGO = Instantiate(backgroundPrefab);
+        bgGO.transform.localScale = new Vector3(sizeInUnits.x, sizeInUnits.y, 1);
+        bgGO.GetComponent<BackgroundTextureScale>().Setup(sizeInUnits);
+    }
+
+    /*
+    void GenerateBackground(Vector2 sizeInUnits)
+    {
         var xMin = -(sizeInUnits.x / 2);
         var xMax = sizeInUnits.y / 2;
 
@@ -56,7 +64,7 @@ public class LevelProcGeneration : ScriptableObject
                 backgroundGameObjects.Add(bgGO);
             }
         }
-    }
+    }*/
 
     void GenerateObjectsByHaltonSequence(
         LevelGenInputs levelGenInputs)
@@ -85,7 +93,7 @@ public class LevelProcGeneration : ScriptableObject
             var location = new Vector3(
                 GetHaltonSequenceNumber(goNumber, xPrime) * levelGenInputs.sizeInUnits.x - levelGenInputs.sizeInUnits.x / 2,
                 GetHaltonSequenceNumber(goNumber, yPrime) * levelGenInputs.sizeInUnits.y - levelGenInputs.sizeInUnits.y / 2,
-                1f);
+                0f);
 
             var prefabIndex = Mathf.Min(
                 (int)(UnityEngine.Random.value * tombstonePrefabs.Length),
