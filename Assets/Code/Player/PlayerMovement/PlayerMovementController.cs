@@ -54,7 +54,7 @@ public class PlayerMovementController : MonoBehaviour
         handAnimator.SetBool("isMoving", true);
 
         playerInteraction.transform.localScale = new Vector3(
-          xDirection,
+          xDirection > 0 ? 1 : -1,
           playerInteraction.transform.localScale.y,
           playerInteraction.transform.localScale.z
         );
@@ -74,7 +74,7 @@ public class PlayerMovementController : MonoBehaviour
 
         playerInteraction.transform.localScale = new Vector3(
           playerInteraction.transform.localScale.x,
-          yDirection,
+          yDirection > 0 ? 1 : -1,
           playerInteraction.transform.localScale.z
         );
 
