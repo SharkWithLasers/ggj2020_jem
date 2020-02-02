@@ -950,6 +950,7 @@ GameObject:
   - component: {fileID: 590884691}
   - component: {fileID: 590884693}
   - component: {fileID: 590884692}
+  - component: {fileID: 590884694}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -1018,6 +1019,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 590884691}
+        m_MethodName: OnLevelFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &590884693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,6 +1046,39 @@ MonoBehaviour:
   levelDuration: {fileID: 11400000, guid: 1e66a3370cb464d54a59f28654d312d0, type: 2}
   TimeForLevelFinishedEvent: {fileID: 11400000, guid: ee114725dcb0e4762866cd21a28ddd38,
     type: 2}
+--- !u!114 &590884694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590884689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeveloperDescription:
+    _value: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: ee114725dcb0e4762866cd21a28ddd38, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 590884691}
+        m_MethodName: OnLevelFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &615199229 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2210091728394540253, guid: e5ce73a9b318e49dc8c643f525557eca,
