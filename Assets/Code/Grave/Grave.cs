@@ -23,8 +23,7 @@ public static class GraveConstants
 
 public class Grave : MonoBehaviour
 {
-    [SerializeField]
-    private LimbNodeType loot = LimbNodeType.LIMB;
+    public LimbNodeType loot = LimbNodeType.LIMB;
 
     private GraveHealthStatus healthStatus;
     private GraveInteractionStatus interactionStatus;
