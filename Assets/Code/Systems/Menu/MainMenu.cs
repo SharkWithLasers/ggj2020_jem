@@ -19,6 +19,19 @@ public class MainMenu : MonoBehaviour
 
   private void Update()
   {
+    if (Input.GetKey(KeyCode.E) || Input.GetButtonDown($"Player1_AButton"))
+    {
+      int currentSelection = ResolveSelectedIndex();
+
+      if (currentSelection == 0) {
+        SinglePlayerMode();
+      }
+      else
+      {
+        MultiplayerMode();
+      }
+    }
+
     if (!canInteract) return;
 
     float yInput = Input.GetAxisRaw("Player1_Vertical");
@@ -28,7 +41,7 @@ public class MainMenu : MonoBehaviour
     if (
       yInput == 0 ||
       index == 0 && yInput > 0 ||
-      index == 3 && yInput < 0
+      index == 1 && yInput < 0
     ) return;
 
     UpdateSelected(
@@ -40,6 +53,16 @@ public class MainMenu : MonoBehaviour
   private int ResolveSelectedIndex()
   {
     return selections.FindIndex(selection => selection.selected);
+  }
+
+  private void SinglePlayerMode()
+  {
+
+  }
+
+  private void MultiplayerMode()
+  {
+
   }
 
   private void UpdateSelected(int selectedIndex, int oldIndex = -1)
