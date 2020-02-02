@@ -8,13 +8,24 @@ public class PlayerMovementController : MonoBehaviour
     private float speed = 1f;
 
     [SerializeField]
+    private float offsetFromBorder = 0.5f;
+
+    [SerializeField]
     private PlayerMeta playerMeta;
 
     public GameObject playerInteraction;
     public Animator handAnimator;
 
+    private float unitSize = 1f;
+    private float worldSizeInUnits = 101f;
+    private float worldMaxX;
+    private float worldMaxY;
+
     private void Start()
     {
+      float halfWorldMap = (unitSize * worldSizeInUnits) / 2f;
+      worldMaxX = halfWorldMap - offsetFromBorder;
+      worldMaxY = halfWorldMap - offsetFromBorder;
     }
 
     private void Update()
@@ -24,6 +35,34 @@ public class PlayerMovementController : MonoBehaviour
 
         float xTranslation = x * Time.deltaTime;
         float yTranslation = y * Time.deltaTime;
+
+        if (
+          transform.position.x > worldMaxX &&
+          xTranslation > 0
+        ) {
+          xTranslation = 0;
+        }
+
+        if (
+          transform.position.x < -worldMaxX &&
+          xTranslation < 0
+        ) {
+          xTranslation = 0;
+        }
+
+        if (
+          transform.position.y > worldMaxY &&
+          yTranslation > 0
+        ) {
+          yTranslation = 0;
+        }
+
+        if (
+          transform.position.y < -worldMaxY &&
+          yTranslation < 0
+        ) {
+          yTranslation = 0;
+        }
 
         transform.Translate(new Vector3(xTranslation, yTranslation, 0));
 
