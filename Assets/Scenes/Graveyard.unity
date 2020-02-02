@@ -218,83 +218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camTransform: {fileID: 253493218}
---- !u!4 &549692485 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1252806112642024132, guid: 4c1528ca75d224696a9c6db1c18e6a42,
-    type: 3}
-  m_PrefabInstance: {fileID: 1101075603}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &816763458
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 549692485}
-    m_Modifications:
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169068988943800043, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829536724701387160, guid: d64ee749f01164e11998b97b9e061168,
-        type: 3}
-      propertyPath: m_Name
-      value: Hand
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4339305129766781454, guid: d64ee749f01164e11998b97b9e061168, type: 3}
-    - {fileID: 4449781964238138227, guid: d64ee749f01164e11998b97b9e061168, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: d64ee749f01164e11998b97b9e061168, type: 3}
 --- !u!1001 &1101075603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -379,31 +302,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1528ca75d224696a9c6db1c18e6a42, type: 3}
---- !u!1 &1463992420 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7829536724701387160, guid: d64ee749f01164e11998b97b9e061168,
-    type: 3}
-  m_PrefabInstance: {fileID: 816763458}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1463992425
+--- !u!95 &1463992425 stripped
 Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5590381995107305713, guid: 4c1528ca75d224696a9c6db1c18e6a42,
+    type: 3}
+  m_PrefabInstance: {fileID: 1101075603}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463992420}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6da287fbde8246e4b4b5785a6d07425, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2415230971488920309
 PrefabInstance:
   m_ObjectHideFlags: 0
