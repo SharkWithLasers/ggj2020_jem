@@ -11,6 +11,7 @@ public class LootSpawner : ScriptableObject
     [SerializeField] private GameObject limbLootPrefab;
     [SerializeField] private GameObject footLootPrefab;
     [SerializeField] private GameObject torsoLootPrefab;
+    [SerializeField] private GameObject headLootPrefab;
 
     public void OnGraveLooted(GraveAndLoot graveAndLoot)
     {
@@ -30,6 +31,11 @@ public class LootSpawner : ScriptableObject
 
     private Option<GameObject> GetPrefabToUse(LimbNodeType loot)
     {
+        if (loot == LimbNodeType.HEAD)
+        {
+            return headLootPrefab;
+        }
+
         if (loot == LimbNodeType.HAND)
         {
             return handLootPrefab;
