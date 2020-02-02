@@ -42,6 +42,11 @@ public class LevelProcGeneration : ScriptableObject
         return currentGraves;
     }
 
+    public List<Grave> GetGraves()
+    {
+      return currentGraves;
+    }
+
     void GenerateBackground(Vector2 sizeInUnits)
     {
         var bgGO = Instantiate(backgroundPrefab);
