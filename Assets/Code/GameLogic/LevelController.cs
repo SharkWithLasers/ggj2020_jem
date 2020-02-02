@@ -20,16 +20,16 @@ public class LevelController : MonoBehaviour
     {
         levelFinished = false;
         
-        var sizeInUnits = new Vector2(101, 101);
+        var sizeInUnits = new Vector2(51, 51);
 
         var levelGenInput = new LevelGenInputs
         {
             sizeInUnits = sizeInUnits,
-            numLimbs = 10,
-            numHands = 6,
-            numFeet = 6,
-            numTorsos = 6,
-            numHeads = 1,
+            numLimbs = 6,
+            numHands = 0,
+            numFeet = 4,
+            numTorsos = 2,
+            numHeads = 2,
         };
 
         levelProcGen.GenerateLevel(levelGenInput);
