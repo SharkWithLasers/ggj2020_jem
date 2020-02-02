@@ -32,7 +32,9 @@ public class InteractableLimbController : MonoBehaviour
     if (Input.GetKey(KeyCode.E) && other.name == "PlayerInteraction")
     {
       LimbNodeController nodeController = gameObject.GetComponent<LimbNodeController>();
-      other.GetComponentInChildren<BodyPartController>().AddBodyPart(nodeController);
+      other.GetComponentInChildren<BodyPartController>().AddBodyPartToList(nodeController.limbType);
+
+      Destroy(gameObject);
     }
   }
 }
