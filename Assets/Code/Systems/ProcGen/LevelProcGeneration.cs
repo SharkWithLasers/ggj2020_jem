@@ -26,7 +26,7 @@ public class LevelProcGeneration : ScriptableObject
     [SerializeField] private GameObject backgroundPrefab;
 
 
-    private List<Grave> currentGraves;
+    private List<Grave> currentGraves = new List<Grave>();
 
     // RE
     public List<Grave> GenerateLevel(LevelGenInputs lgi)
@@ -91,9 +91,15 @@ public class LevelProcGeneration : ScriptableObject
 
     private void ClearPreviousShit()
     {
-        foreach (var go in currentGraves)
+        if (currentGraves != null)
         {
-            Destroy(go.gameObject);
+            foreach (var go in currentGraves)
+            {
+                if (go != null)
+                {
+                    Destroy(go.gameObject);
+                }
+            }
         }
 
         currentGraves = new List<Grave>();
