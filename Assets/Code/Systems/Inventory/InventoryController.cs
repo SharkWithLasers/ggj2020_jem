@@ -17,25 +17,10 @@ public class InventoryController : MonoBehaviour
 
     [SerializeField] private PlayerInventory playerInventory;
 
-
-
-
-  public void Add(LimbNodeType type)
-  {
-        /*
-    if (type == LimbNodeType.HAND) {
-      Instantiate(handPrefab, transform);
-    }
-    else if (type == LimbNodeType.LIMB) {
-      Instantiate(limbPrefab, transform);
-    }
-    else if (type == LimbNodeType.FOOT) {
-      Instantiate(footPrefab, transform);
-    }*/
-  }
-
     public void OnInventoryChanged()
     {
+        Debug.Log($"len {limbGrayouts.Length}");
+
         if (playerInventory.bodyPartToCount.ContainsKey(LimbNodeType.HAND))
         {
             var numHands = Mathf.Min(

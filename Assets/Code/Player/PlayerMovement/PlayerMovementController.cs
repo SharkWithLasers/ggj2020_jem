@@ -17,7 +17,7 @@ public class PlayerMovementController : MonoBehaviour
     public Animator handAnimator;
 
     private float unitSize = 1f;
-    private float worldSizeInUnits = 101f;
+    private float worldSizeInUnits = 51;
     private float worldMaxX;
     private float worldMaxY;
 

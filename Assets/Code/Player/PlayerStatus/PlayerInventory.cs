@@ -26,7 +26,16 @@ public class PlayerInventory : ScriptableObject
     {
         if (bodyPartToCount.ContainsKey(limb))
         {
-            bodyPartToCount[limb] = bodyPartToCount[limb] + 1;
+            if (bodyPartToCount[limb] < requiredBodyParts[limb])
+            {
+                bodyPartToCount[limb] = bodyPartToCount[limb] + 1;
+
+            }
+            else
+            {
+                return;
+            }
+
         }
         else
         {
