@@ -40,11 +40,11 @@ public class LevelController : MonoBehaviour
 
     private void Update()
     {
-
+        /*
         if (levelFinished && Input.GetButtonDown("Player_YButton"))
         {
             SceneManager.LoadScene(1);
-        }
+        }*/
 
         if (levelFinished && Input.GetButtonDown("Player_StartButton"))
         {

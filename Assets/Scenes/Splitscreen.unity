@@ -3665,9 +3665,27 @@ PrefabInstance:
     - target: {fileID: 2060599121109421623, guid: 93ce08b48e22e4fa99d63ff5d092b8f3,
         type: 3}
       propertyPath: m_text
-      value: '(Press Y to replay)
-
-        (Press Start for menu)'
+      value: (Press Start to replay)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060599121109421623, guid: 93ce08b48e22e4fa99d63ff5d092b8f3,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060599121109421623, guid: 93ce08b48e22e4fa99d63ff5d092b8f3,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060599121109421623, guid: 93ce08b48e22e4fa99d63ff5d092b8f3,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060599121109421623, guid: 93ce08b48e22e4fa99d63ff5d092b8f3,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2060599121701584679, guid: 93ce08b48e22e4fa99d63ff5d092b8f3,
         type: 3}
