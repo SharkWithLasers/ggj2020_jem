@@ -76,11 +76,14 @@ public class sfxManager : MonoBehaviour
     }
     public void digSound()
     {
-
+        int clipRand = Random.Range(0, digSounds.Count);
+        float pitchRand = Random.Range(0.9f, 1.1f);
+        dig.pitch = pitchRand;
+        dig.PlayOneShot(digSounds[clipRand]);
     }
     public void itemGetSound()
     {
-
+        itemGet.PlayOneShot(itemClip);
     }
 
 }

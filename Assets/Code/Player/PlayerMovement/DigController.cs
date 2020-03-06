@@ -36,12 +36,19 @@ public class DigController : MonoBehaviour
     {
         if (overlappingGrave.HasValue && _isDiggable)
         {
-            handAnimator.SetBool("isDigging", true);
-            overlappingGrave.Value.Damage(digDamagePerPress, playerInventory);
-            if (sfxManager != null)
-            {
-                sfxManager.SendMessage("DigSound");
+            // Moved previous code into this condition to allow for more controlled
+            // triggering of digSound and itemGetSound on last hit
+            if (overlappingGrave.Value.healthStatus != GraveHealthStatus.CompletelyLooted) {
+                handAnimator.SetBool("isDigging", true);
+                overlappingGrave.Value.Damage(digDamagePerPress, playerInventory);
+                if (sfxManager != null) {
+                    sfxManager.SendMessage("digSound");
+                    if (overlappingGrave.Value.curGraveHealth == 0) {
+                        sfxManager.SendMessage("itemGetSound");
+                    }
+                }
             }
+            
         }
     }
 

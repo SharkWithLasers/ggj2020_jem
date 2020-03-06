@@ -20,6 +20,7 @@ public class PlayerMovementController : MonoBehaviour
     private float worldSizeInUnits = 51;
     private float worldMaxX;
     private float worldMaxY;
+    public GameObject sfxManager;
 
     private void Start()
     {
@@ -73,8 +74,13 @@ public class PlayerMovementController : MonoBehaviour
         FaceYAxis(yDirection);
 
         if (xDirection == 0 && yDirection == 0) {
-          handAnimator.SetBool("isMoving", false);
+            handAnimator.SetBool("isMoving", false);
+            if (sfxManager != null)
+            {
+                sfxManager.SendMessage("MoveSound", false);
+            }
         }
+
     }
 
     public void IncreaseSpeed(float modifier)
@@ -91,8 +97,12 @@ public class PlayerMovementController : MonoBehaviour
     {
       if (xDirection > 0 || xDirection < 0) {
         handAnimator.SetBool("isMoving", true);
+            if (sfxManager != null)
+            {
+                sfxManager.SendMessage("MoveSound", true);
+            }
 
-        playerInteraction.transform.localScale = new Vector3(
+            playerInteraction.transform.localScale = new Vector3(
           xDirection > 0 ? 1 : -1,
           playerInteraction.transform.localScale.y,
           playerInteraction.transform.localScale.z
@@ -110,8 +120,12 @@ public class PlayerMovementController : MonoBehaviour
     {
       if (yDirection > 0 || yDirection < 0) {
         handAnimator.SetBool("isMoving", true);
+            if (sfxManager != null)
+            {
+                sfxManager.SendMessage("MoveSound", true);
+            }
 
-        playerInteraction.transform.localScale = new Vector3(
+            playerInteraction.transform.localScale = new Vector3(
           playerInteraction.transform.localScale.x,
           yDirection > 0 ? 1 : -1,
           playerInteraction.transform.localScale.z
