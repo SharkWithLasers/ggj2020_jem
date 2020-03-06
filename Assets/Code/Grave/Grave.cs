@@ -25,11 +25,14 @@ public class Grave : MonoBehaviour
 {
     public LimbNodeType loot = LimbNodeType.LIMB;
 
-    private GraveHealthStatus healthStatus;
+    // Changed to public to allow access through dig controller, prevent repeated sfx triggering
+    public GraveHealthStatus healthStatus;
     private GraveInteractionStatus interactionStatus;
 
     private float graveMaxHealth = 100f;
-    private float curGraveHealth;
+
+    // Changed to public to allow per-character trigger of item get -Evan
+    public float curGraveHealth;
     private float curHealthRatio => curGraveHealth / graveMaxHealth;
 
     private int numOverlappingPlayers = 0;
